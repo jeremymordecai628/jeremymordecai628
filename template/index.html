@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeremy Mordecai's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: whitesmoke;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00274d; /* Dark Blue */
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            width: 150px; /* Increased image size */
+            height: 150px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover; /* Ensures the image covers the circle */
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+            position: relative;
+            height: 60px; /* Increased height to show more text */
+            overflow: hidden;
+        }
+        .slide-text {
+            animation: slide 6s infinite; /* Vertical slide animation */
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .skills {
+            margin-bottom: 40px;
+        }
+        .slideshow-container {
+            width: 100%;
+            margin: auto;
+            position: relative;
+        }
+        .slides {
+            display: none;
+            text-align: center;
+        }
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .slides .content {
+            padding: 10px;
+            background-color: black;
+        }
+        .slides h2 {
+            margin-top: 15px;
+        }
+        .slides p {
+            padding: 10px;
+        }
+        .active {
+            display: block;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="../images/me " alt="Jeremy Mordecai">
+    <div class="header-content">
+        <h1>
+            <span class="slide-text">Jeremy Mordecai</span>
+            <span class="slide-text">Software Engineer</span>
+            <span class="slide-text">IT Expert</span>
+        </h1>
+    </div>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        I am a DevOps specialist with a strong background in CI/CD using Jenkins, and experience in Infrastructure as Code (IAC) with tools like Ansible, Terraform, and Kubernetes. Currently pursuing Software Engineering through ALX and studying IT at Daystar University, I also manage the IT infrastructure at Ressen Gardens, a startup school. I'm proficient in multiple programming languages and databases, and also skilled in computer hardware, making me versatile in both hardware and software development.
+    </p>
+
+    <div class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Java, C, C++, Python, HTML, CSS, PHP</li>
+            <li>MySQL, MongoDB</li>
+            <li>CI/CD: Jenkins</li>
+            <li>DevOps: Ansible, Terraform, Kubernetes</li>
+            <li>Linux, Computer Hardware</li>
+            <li>Android Development</li>
+        </ul>
+    </div>
+
+    <h2>Projects</h2>
+    <div class="slideshow-container">
+        <div class="slides active">
+            <img src="../images/terminal" alt="Simple Shell">
+            <div class="content">
+                <h2><strong>Simple shell</strong></h2>
+                <p>This was actually my first major project assigned to me by ALX. It lacks a user interface but it is a command line that mimics the Linux terminal.</p>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="../images/Grade pro.jpeg" alt="Student Grade App">
+            <div class="content">
+                <h2><strong>Student Grade App</strong></h2>
+                <p>A mobile application for managing student grades using SQLite.</p>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="../images/supplier" alt="Supplier Collaboration System">
+            <div class="content">
+                <h2><strong>Supplier Collaboration System</strong></h2>
+                <p>A web-based PHP and MySQL system to streamline collaboration between suppliers and procurement teams.</p>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="../images/gallery" alt="Gallery">
+            <div class="content">
+                <h2><strong>Gallery</strong></h2>
+                <p>I participated in this JavaScript project by writing a Jenkins script that automatically merged the changes made by the developer of the project and it automatically deployed the changes to Heroku.</p>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="../images/WhatsApp Image 2024-08-07 at 9.05.38 PM.jpeg" alt="Yolo Application">
+            <div class="content">
+                <h2><strong>Yolo application</strong></h2>
+                <p>I did microservices in this project by building two images to run the backend container and the frontend container. I pulled a Mongo image for the database container. I then created a Docker Compose file that assigned the three containers to the same local network and deployed it on Kubernetes.</p>
+            </div>
+        </div>
+        <div class="slides">
+            <img src="../images/Hard Mazes - Best Coloring Pages For Kids.jpeg" alt="Maze game">
+            <div class="content">
+                <h2><strong>Maze Game</strong></h2>
+                <p>The inspiration for my maze game project stems from my passion for puzzles and fascination with game design. It provides a visually engaging experience with different levels of difficulty.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Jeremy Mordecai</p>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    let autoSlideInterval;
+    let slides = document.getElementsByClassName("slides");
+
+    function showSlides(n) {
+        if (n >= slides.length) { slideIndex = 0 }
+        if (n < 0) { slideIndex = slides.length - 1 }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "block";
+    }
+
+    function startSlideShow() {
+        autoSlideInterval = setInterval(() => {
+            slideIndex++;
+            showSlides(slideIndex);
+        }, 3000); // Change every 3 seconds
+    }
+
+    function stopSlideShow() {
+        clearInterval(autoSlideInterval);
+    }
+
+    document.querySelector('.slideshow-container').addEventListener('mouseenter', stopSlideShow);
+    document.querySelector('.slideshow-container').addEventListener('mouseleave', startSlideShow);
+
+    window.onload = () => {
+        showSlides(slideIndex);
+        startSlideShow();
+        generateStars(); // Start the star animation
+    };
+
+    // JavaScript for generating star animations
+    function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+
+        // Assign random properties to the star
+        const size = Math.random() * 3 + 1; // Size between 1px and 4px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.position = 'absolute';
+        star.style.borderRadius = '50%';
+        star.style.backgroundColor = 'white';
+        star.style.top = `${Math.random() * window.innerHeight}px`;
+        star.style.left = `${Math.random() * window.innerWidth}px`;
+        star.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px white`;
+
+        // Add the star to the body
+        document.body.appendChild(star);
+
+        // Make the star move downwards slowly and remove after it passes the screen
+        const starSpeed = Math.random() * 2 + 1; // Random speed
+        let topPos = parseFloat(star.style.top);
+
+        // Animation function
+        function animateStar() {
+            if (topPos > window.innerHeight) {
+                // Remove the star when it moves off the screen
+                document.body.removeChild(star);
+            } else {
+                topPos += starSpeed;
+                star.style.top = `${topPos}px`;
+                requestAnimationFrame(animateStar); // Continue the animation
+            }
+        }
+
+        // Start the star animation
+        animateStar();
+    }
+
+    // Function to continuously generate stars
+    function generateStars() {
+        setInterval(() => {
+            createStar();
+        }, 300); // Generate a new star every 300ms
+    }
+</script>
+
+
+</body>
+</html>
